@@ -1,0 +1,153 @@
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+
+const About = () => {
+  const stats = [
+    { label: "Years of Service", value: "15+" },
+    { label: "Happy Students", value: "10,000+" },
+    { label: "Products Available", value: "500+" },
+    { label: "Campus Locations", value: "3" }
+  ];
+
+  const team = [
+    {
+      name: "Rajesh Kumar",
+      role: "Store Manager",
+      description: "15+ years experience in retail management"
+    },
+    {
+      name: "Priya Sharma",
+      role: "Customer Service Head",
+      description: "Dedicated to providing excellent student support"
+    },
+    {
+      name: "Amit Patel",
+      role: "Inventory Manager", 
+      description: "Ensures all student needs are always in stock"
+    }
+  ];
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header />
+      <main className="container mx-auto px-4 py-8">
+        {/* Hero Section */}
+        <div className="text-center mb-16">
+          <h1 className="text-4xl font-bold mb-6 text-foreground">About Usharama Mart</h1>
+          <p className="text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            Your trusted college companion for over 15 years. We understand the unique needs of students 
+            and strive to provide quality products at affordable prices, right on campus.
+          </p>
+        </div>
+
+        {/* Stats Section */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16">
+          {stats.map((stat, index) => (
+            <Card key={index} className="text-center">
+              <CardContent className="pt-6">
+                <div className="text-3xl font-bold text-primary mb-2">{stat.value}</div>
+                <div className="text-muted-foreground">{stat.label}</div>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+
+        {/* Story Section */}
+        <div className="grid lg:grid-cols-2 gap-12 mb-16">
+          <div>
+            <h2 className="text-3xl font-bold mb-6 text-foreground">Our Story</h2>
+            <div className="space-y-4 text-muted-foreground">
+              <p>
+                Founded in 2009, Usharama Mart began as a small stationery shop near the college campus. 
+                Our founder, Mr. Usharama, noticed that students had to travel far from campus to get 
+                basic necessities and study materials.
+              </p>
+              <p>
+                What started as a humble beginning has now grown into the largest college store chain 
+                in the region, serving thousands of students across multiple campuses. We've expanded 
+                our inventory to include everything from textbooks to trendy apparel, from electronics 
+                to healthy snacks.
+              </p>
+              <p>
+                Our mission remains the same: to make student life easier by providing quality products 
+                at student-friendly prices, right where they need them most.
+              </p>
+            </div>
+          </div>
+          <div className="bg-muted rounded-lg aspect-video flex items-center justify-center">
+            <span className="text-muted-foreground">Store Image Placeholder</span>
+          </div>
+        </div>
+
+        {/* Values Section */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">Our Values</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <Card className="text-center">
+              <CardHeader>
+                <CardTitle className="text-xl">Student-First</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  Every decision we make puts student needs and budgets first. We understand 
+                  the challenges of student life and adapt accordingly.
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="text-center">
+              <CardHeader>
+                <CardTitle className="text-xl">Quality Assurance</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  We source our products from trusted suppliers and ensure everything meets 
+                  our high standards before reaching our shelves.
+                </CardDescription>
+              </CardContent>
+            </Card>
+            <Card className="text-center">
+              <CardHeader>
+                <CardTitle className="text-xl">Community Support</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <CardDescription>
+                  We actively participate in college events, sponsor student activities, 
+                  and support the academic community in various ways.
+                </CardDescription>
+              </CardContent>
+            </Card>
+          </div>
+        </div>
+
+        {/* Team Section */}
+        <div>
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">Meet Our Team</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {team.map((member, index) => (
+              <Card key={index} className="text-center">
+                <CardHeader>
+                  <div className="w-24 h-24 bg-muted rounded-full mx-auto mb-4 flex items-center justify-center">
+                    <span className="text-2xl font-bold text-primary">
+                      {member.name.charAt(0)}
+                    </span>
+                  </div>
+                  <CardTitle className="text-xl">{member.name}</CardTitle>
+                  <CardDescription className="text-primary font-medium">
+                    {member.role}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <p className="text-muted-foreground">{member.description}</p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </main>
+      <Footer />
+    </div>
+  );
+};
+
+export default About;
